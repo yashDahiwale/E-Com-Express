@@ -84,32 +84,23 @@ function Login() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        let response;
         try {
-            response = await axios({
-                method: "POST",
-                url: "http://localhost:9000/user/loginUser",
-                data: formData
-            })
+            const response = await axios.post("http://localhost:9000/user/loginUser", formData);
             if (response.status !== 200) {
-                setAlertMessage("Something went wrong! Please try again later.");
-                handleAlert();
+                throw new Error("Something went wrong! Please try again later.");
             }
-            setAlertMessage(response.data.message);
+            const { message, token } = response.data;
+            setAlertMessage(message);
             handleAlert();
-            const token = response.data.token;
-            console.log(token)
             localStorage.setItem("token", token);
-            if (token) {
-                navigate("/user/account");
-            } else{
-                navigate("/user/login")
-            }
+            navigate(token ? "/user/dashboard" : "/user/login");
         } catch (error) {
-            setAlertMessage("Unable to Register the User!")
-            console.log(error)
+            setAlertMessage(error.response?.data?.message || "Unable to Register the User!");
+            handleAlert();
+            console.error(error);
+        } finally {
+            resetForm();
         }
-        resetForm();
     }
 
     return (

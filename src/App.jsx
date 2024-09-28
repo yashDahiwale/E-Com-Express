@@ -8,7 +8,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Home from "./components/pages/Home.jsx"
 import Register from './components/pages/Register.jsx'
 import Login from './components/pages/Login.jsx'
-import Account from './components/pages/Account.jsx'
+import Dashboard from './components/pages/Dashboard.jsx'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/user/register' element={<Register />} />
           <Route path='/user/login' element={<Login />} />
-          <Route path='/user/account' element={<Account />} />
+          <Route path='/user/dashboard' element={<Dashboard />} />
           <Route path='/*' element={<h1>Page Not Found</h1>} />
         </Routes>
       </BrowserRouter>

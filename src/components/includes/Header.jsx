@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 
 // Import Icons
 import { CiSearch } from "react-icons/ci";
@@ -15,6 +15,8 @@ import { useGSAP } from '@gsap/react';
 
 
 function Header() {
+    const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     // GSAP Animation
     useGSAP(
@@ -63,7 +65,15 @@ function Header() {
 
     const logout = () => {
         localStorage.removeItem("token");
+        setIsLoggedIn(false);
+        // navigate("/user/login", { replace: true });
     }
+
+    useEffect(() => {
+        if (!isLoggedIn) {
+            navigate("/user/login", { replace: true });
+        }
+    }, [isLoggedIn]);
 
     return (
         <>

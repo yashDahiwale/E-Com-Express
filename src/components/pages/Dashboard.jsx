@@ -32,14 +32,14 @@ function Account() {
     }
 
     useEffect(() => {
-        fetchUserData()
+        fetchUserData();
     }, [])
 
     return (
         <>
             <Header />
-            <h1 style={{ margin: "10rem auto", textAlign: "center", fontSize: "5rem" }}>This is an User's Account Page</h1>
-            <span>{ userData.name }</span>
+            <h1 style={{ margin: "10rem auto", textAlign: "center", fontSize: "5rem" }}>This is an User's Dashboard</h1>
+            <span style={{ display: "grid", placeItems: "center" }}>User: {userData.name}</span>
             <Footer />
         </>
     )
