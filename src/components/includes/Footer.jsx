@@ -26,7 +26,7 @@ function Footer() {
         try {
             response = await axios({
                 method: "POST",
-                url: "http://localhost:9000/user/subscribe",
+                url: `${import.meta.env.VITE_BACKEND_URL}/user/subscribe`,
                 data: email
             })
             setAlertMessage(response.data.message);

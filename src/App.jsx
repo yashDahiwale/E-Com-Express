@@ -9,21 +9,23 @@ import Home from "./components/pages/Home.jsx"
 import Register from './components/pages/Register.jsx'
 import Login from './components/pages/Login.jsx'
 import Dashboard from './components/pages/Dashboard.jsx'
-import Cart from './components/includes/Cart.jsx'
+import Checkout from './components/includes/Checkout.jsx'
+import CartPage from './components/pages/CartPage.jsx'
 function App() {
   return (
-    <>
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/user/register' element={<Register />} />
           <Route path='/user/login' element={<Login />} />
           <Route path='/user/dashboard' element={<Dashboard />} />
-          <Route path='/user/cart' element={<Cart />} />
+          <Route path='/user/cart' element={<CartPage />} />
+          <Route path='/user/checkout' element={<Checkout />} />
           <Route path='/*' element={<h1>Page Not Found</h1>} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   )
 }
 

@@ -69,7 +69,7 @@ function Register() {
 
 
     const handleShowHide = () => {
-        
+
     }
 
 
@@ -115,7 +115,7 @@ function Register() {
         try {
             response = await axios({
                 method: "POST",
-                url: "http://localhost:9000/user/registerUser",
+                url: `${import.meta.env.VITE_BACKEND_URL}/user/registerUser`,
                 data: formData
             })
             if (response.status === 200) {

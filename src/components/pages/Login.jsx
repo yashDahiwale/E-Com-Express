@@ -85,7 +85,7 @@ function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:9000/user/loginUser", formData);
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/loginUser`, formData);
             if (response.status !== 200) {
                 throw new Error("Something went wrong! Please try again later.");
             }

@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 function Cart() {
     const [cartItems, setCartItems] = useState([
-        { name: "Product 1", price: 10.99, quantity: 1, image: "https://via.placeholder.com/100?text=Product+1" },
-        { name: "Product 2", price: 15.49, quantity: 2, image: "https://via.placeholder.com/100?text=Product+2" },
-        { name: "Product 3", price: 7.99, quantity: 3, image: "https://via.placeholder.com/100?text=Product+3" },
-        { name: "Product 4", price: 12.99, quantity: 1, image: "https://via.placeholder.com/100?text=Product+4" },
-        { name: "Product 5", price: 9.99, quantity: 2, image: "https://via.placeholder.com/100?text=Product+5" },
-        { name: "Product 6", price: 20.00, quantity: 1, image: "https://via.placeholder.com/100?text=Product+6" },
-        { name: "Product 7", price: 5.50, quantity: 4, image: "https://via.placeholder.com/100?text=Product+7" },
-        { name: "Product 8", price: 25.75, quantity: 1, image: "https://via.placeholder.com/100?text=Product+8" }
+        { name: "Product 1", price: 10.99, quantity: 1, image: "https://via.placeholder.com/100?text=Product+1", description: "Description for Product 1" },
+        { name: "Product 2", price: 15.49, quantity: 2, image: "https://via.placeholder.com/100?text=Product+2", description: "Description for Product 2" },
+        { name: "Product 3", price: 7.99, quantity: 3, image: "https://via.placeholder.com/100?text=Product+3", description: "Description for Product 3" },
+        { name: "Product 4", price: 12.99, quantity: 1, image: "https://via.placeholder.com/100?text=Product+4", description: "Description for Product 4" },
+        { name: "Product 5", price: 9.99, quantity: 2, image: "https://via.placeholder.com/100?text=Product+5", description: "Description for Product 5" },
+        { name: "Product 6", price: 20.00, quantity: 1, image: "https://via.placeholder.com/100?text=Product+6", description: "Description for Product 6" },
+        { name: "Product 7", price: 5.50, quantity: 4, image: "https://via.placeholder.com/100?text=Product+7", description: "Description for Product 7" },
+        { name: "Product 8", price: 25.75, quantity: 1, image: "https://via.placeholder.com/100?text=Product+8", description: "Description for Product 8" }
     ]);
 
     // useEffect(() => {
@@ -63,6 +63,7 @@ function Cart() {
                             <img src={item.image} alt={item.name} className="cart-item-image" />
                             <div className="item-details">
                                 <h3 className="item-name">{item.name}</h3>
+                                <p className="item-description" style={{ opacity: 0.6 }}>{item.description}...</p>
                                 <p className="item-price">Price: ${item.price}</p>
                                 <p className="item-quantity">Quantity: {item.quantity}</p>
                                 <p className="item-total">Total: ${(item.price * item.quantity).toFixed(2)}</p>
@@ -80,8 +81,11 @@ function Cart() {
             )}
             <div className="cart-total">
                 <h3 className="total-price">Total: ${getTotalPrice()}</h3>
-                <Link to="/checkout">
+                <Link to="user/checkout">
                     <button className="checkout-button">Proceed to Checkout</button>
+                </Link>
+                <Link to="user/cart">
+                    <button className="checkout-button">Open in Cart</button>
                 </Link>
             </div>
         </div>

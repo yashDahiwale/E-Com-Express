@@ -227,7 +227,7 @@ header {
         top: 0;
         right: -30%;
         z-index: 10;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         opacity: 0;
 
         .more-options-list {
@@ -912,6 +912,7 @@ body {
 
                         &:hover {
                             background-color: $blue-4;
+                            color: $blue-1;
                         }
                     }
                 }
@@ -928,6 +929,7 @@ body {
 
                     &:hover {
                         background-color: $blue-4;
+                        color: $blue-1;
                     }
                 }
             }
@@ -976,10 +978,12 @@ body {
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 1.25rem;
         transition: background-color 0.3s ease;
 
         &:hover {
             background-color: $blue-4;
+            color: $blue-1;
         }
     }
 
@@ -989,5 +993,76 @@ body {
         right: 10px;
         cursor: pointer;
         color: $blue-1;
+    }
+}
+
+// Checkout
+.checkout-background {
+
+    .checkout-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 20px;
+        background-color: $blue-1;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        // border-radius: 8px;
+
+        .checkout-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: $blue-8;
+            font-weight: 600;
+        }
+
+        .checkout-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                label {
+                    font-size: 1rem;
+                    color: $blue-7;
+                }
+
+                input {
+                    padding: 10px;
+                    border: 1px solid $blue-3;
+                    border-radius: 4px;
+                    font-size: 1rem;
+                    color: $blue-1;
+                    background-color: $blue-8;
+
+                    &:focus {
+                        border-color: $blue-4;
+                        outline: none;
+                    }
+                }
+            }
+
+            .checkout-button {
+                width: 100%;
+                padding: 10px;
+                margin-top: 20px;
+                background-color: $blue-5;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1.25rem;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: $blue-4;
+                    color: $blue-1;
+                }
+            }
+        }
     }
 }

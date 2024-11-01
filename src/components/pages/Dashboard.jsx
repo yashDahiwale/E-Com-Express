@@ -15,7 +15,7 @@ function Account() {
         try {
             result = await axios({
                 method: "GET",
-                url: "http://localhost:9000/user/dashboard",
+                url: `${import.meta.env.VITE_BACKEND_URL}/user/dashboard`,
                 headers: {
                     authorization: localStorage.getItem("token"),
                     content: "text/json"
